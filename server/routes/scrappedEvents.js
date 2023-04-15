@@ -7,7 +7,6 @@ const url = "https://www.un.org/en/climatechange/events";
 router.get("/", async (req, res) => {
   try {
    const events =await handler();
-   console.log("trying events ", events)
    res.status(200).json(events);
   } catch (err) {
     res.status(400).send("something wrong in scrapping events")
@@ -21,7 +20,6 @@ const handler = async () => {
     await page.goto(url);
     const html = await page.content();
     const $ = load(html);
-    console.log(html);
     const events = [];
     $("div.views-field.views-field-nothing .event-container").each((i, el) => {
       const title = $(".event-content .content-wrapper h3 strong", el)
@@ -38,8 +36,6 @@ const handler = async () => {
       const location = $(".event-container .event-location", el).text().trim();
       events.push({ title, date, time, desc, category, location, link, pic });
     });
-    console.log(events);
-    // res.json(events);
     return events;
 };
 
