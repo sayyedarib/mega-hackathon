@@ -15,6 +15,29 @@ font-size: 40px;
     background-color: #D6F5D6;
   }
   
+.category{
+  display: block;
+  background: white;
+  padding: 20px;
+  color: #0B5345;
+  text-align: center;
+  font-size:25px;
+  font-weight: 600;
+}
+
+
+.category span{
+  margin: 0 25px;
+}
+
+.category span:hover{
+  cursor: pointer;
+  background: #0B5345;
+  padding: 20px;
+  margin:0 20px;
+  color: white;
+}
+
   @media (max-width: 750px) {
     .eventsList {
       margin: 0 10%;
