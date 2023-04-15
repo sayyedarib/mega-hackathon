@@ -1,3 +1,9 @@
+.main h3{
+text-items: center;
+color: rgb(0, 97, 0);
+font-size: 40px;
+}
+
 .eventsList {
     display: flex;
     flex-direction: column;

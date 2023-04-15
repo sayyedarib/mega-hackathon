@@ -15,8 +15,8 @@ export default function Home({ events }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <h3>hello</h3>
         <div className={styles.eventsList}>
+        <h3>Events</h3>
         {events.map(({ title, date, time, desc, category, location, link,pic }) => {
      return (    <EventCard
             title={title}
