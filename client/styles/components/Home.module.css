@@ -1,99 +1,96 @@
-.main h3{
-text-items: center;
-color: rgb(0, 97, 0);
-font-size: 40px;
+.main h3 {
+  text-items: center;
+  color: rgb(0, 97, 0);
+  font-size: 40px;
 }
 
 .eventsList {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin: 0 20%;
-    border: 2px solid #7FB800;
-    border-radius: 8px;
-    padding: 2rem;
-    background-color: #D6F5D6;
-  }
-  
-.category{
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 0 20%;
+  border: 2px solid #7fb800;
+  border-radius: 8px;
+  padding: 2rem;
+  background-color: #d6f5d6;
+}
+
+.category {
+  /* display: block; */
   background: white;
   padding: 20px;
-  color: #0B5345;
+  color: #0b5345;
   text-align: center;
-  font-size:25px;
+  font-size: 25px;
   font-weight: 600;
 }
 
-
-.category span{
+.category span {
   margin: 0 25px;
 }
 
-.category span:hover{
+.category span:hover {
   cursor: pointer;
-  background: #0B5345;
-  padding: 20px;
-  margin:0 20px;
-  color: white;
+  /* background: #0b5345; */
+  /* transform: translateY(-10px);
+  transition: 50ms; */
+  /* color: white; */
 }
 
-  @media (max-width: 750px) {
-    .eventsList {
-      margin: 0 10%;
-      gap: 4rem;
-    }
+@media (max-width: 750px) {
+  .eventsList {
+    margin: 0 10%;
+    gap: 4rem;
   }
-  
+}
+
+.main {
+  display: flex;
+  gap: 2rem;
+  margin: 25px;
+  justify-content: center;
+  align-items: center;
+}
+
+.left {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.left a {
+  text-decoration: none;
+}
+
+.timeLocation {
+  width: 400px;
+}
+
+.right img {
+  width: 200px;
+  height: auto;
+  border-radius: 10%;
+}
+@media (max-width: 750px) {
   .main {
-    z-index: 999;
-    display: flex;
-    gap: 2rem;
-    margin: 25px;
-    justify-content: center;
-    align-items: center;
+    gap: 0;
+    margin: 0;
   }
-  
   .left {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+    margin: 0;
   }
-  
-  .left a {
-    text-decoration: none;
-  }
-  
   .timeLocation {
-    width: 400px;
+    width: auto;
   }
-  
-  .right img {
-    width: 200px;
-    height: auto;
-    border-radius: 10%;
+  .desc h3 {
+    margin: 20px 0;
   }
-  @media (max-width: 750px) {
-    .main {
-      gap: 0;
-      margin: 0;
-    }
-    .left {
-      gap: 0;
-      flex-wrap: wrap;
-      margin: 0;
-    }
-    .timeLocation {
-      width: auto;
-    }
-    .desc h3 {
-      margin: 20px 0;
-    }
+}
+
+@media (min-width: 1200px) {
+  .eventsList {
+    padding: 4rem;
   }
-  
-  @media (min-width: 1200px) {
-    .eventsList {
-      padding: 4rem;
-    }
-  }
-  
+}
