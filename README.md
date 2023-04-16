@@ -1,2 +1,2 @@
 # mega-hackathon
-this is a mega-hackathon project made by Aarib, NIko, Lio
+this is a mega-hackathon project developed by  Niko, Jessie and Aarib
