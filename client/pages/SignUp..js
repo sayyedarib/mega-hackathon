@@ -2,50 +2,50 @@ import React, { useState, useEffect } from "react";
 import styles from "../styles/components/loginPopup.module.css";
 import axios from "axios";
 import { BACKEND_URL } from "next.config";
-import jwt_decode from "jwt-decode";
 import Navbar from "@/components/Navbar";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 const SignUp = () => {
-  const [type, setType] = useState("");
+  const router = useRouter();
   const [user, setUser] = useState({
-    type: "user",
+    type: "",
     name: "",
     email: "",
     password: "",
-    confirmpassword:"",
+    confirmpassword: "",
     team: [],
     about: "",
   });
 
   let name, value;
   const handleInput = (e) => {
-    console.log(user)
+    console.log(user);
     const { name, value } = e.target;
-    setUser(prevState => ({
+    setUser((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
   };
-  
 
   const handleClick = async (e) => {
     e.preventDefault();
-console.log("submit button clicked")
+    console.log("submit button clicked");
     try {
       console.log("start response ", user);
-      const response = await axios.post(`${BACKEND_URL}/api/signup`,user,
-        {
-          withCredentials: true,
-        }
-      );
-console.log("response ", response)
+      const response = await axios.post(`${BACKEND_URL}/api/signup`, user, {
+        withCredentials: true,
+      });
+      console.log("response ", response);
       setUser({
-        type:"",
-        name:"",
+        type: "",
+        name: "",
         email: "",
         password: "",
-        confirmpassword:"",
+        confirmpassword: "",
+        about: "",
       });
+      router.push("/LoginPopup");
     } catch (err) {
       console.log("error while login data ", err);
     }
@@ -59,14 +59,28 @@ console.log("response ", response)
           <img
             style={{ width: "350px", height: "auto" }}
             src="/images/vector/login.jpg"
-            alt=""
+            alt="vector image not found"
           />
         </div>
-        {type == "" ? (
+        {user.type == "" ? (
           <div className={styles.userType}>
             {" "}
-            <input type="select" name="type" value="User" onClick={()=>{setType("user"); {setUser({...user, type:"user"})}}} />
-            <input type="select" name="type" value="Organization" onClick={()=>{setType("org"); {setUser({...user, type:"user"})}}} />
+            <input
+              type="select"
+              name="type"
+              value="User"
+              onClick={() => {
+                setUser({ ...user, type: "user" });
+              }}
+            />
+            <input
+              type="select"
+              name="type"
+              value="Organization"
+              onClick={() => {
+                setUser({ ...user, type: "org" });
+              }}
+            />
           </div>
         ) : (
           <div className={styles.right}>
@@ -104,7 +118,7 @@ console.log("response ", response)
                 placeholder="Password"
                 required
               />
-                            <input
+              <input
                 value={user.confirmpassword}
                 onChange={handleInput}
                 type="password"
@@ -113,9 +127,24 @@ console.log("response ", response)
                 placeholder="Confirm Password"
                 required
               />
+              {user.type == "org" && (
+                <textarea
+                  rows="6"
+                  value={user.about}
+                  onChange={handleInput}
+                  type="text"
+                  name="about"
+                  id="about"
+                  placeholder="about org"
+                  required
+                />
+              )}
 
               <input type="submit" value="signUp" onClick={handleClick} />
             </form>
+            <Link href="/LoginPopup">
+              If you are existing user please LogIn
+            </Link>
           </div>
         )}
       </div>

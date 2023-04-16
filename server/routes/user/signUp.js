@@ -3,14 +3,14 @@ const { User, validate } = require("../../models/user");
 const bcrypt = require("bcrypt");
 
 router.post("/", async (req, res) => {
-  console.log("req.body ", req.body);
+  console.log("req.body ", req.body)
   const { type, name, email, password, confirmpassword, team, about } = req.body;
   try {
     console.log("insde server signUp file 1");
     // const { error } = validate(req.body);
-    console.log("insde server signUp file 2");
+    // console.log("insde server signUp file 2");
     // if (error)
-    //   return res.status(400).send({ message: error.details[0].message });
+      // return res.status(400).send({ message: error.details[0].message });
     console.log("insde server signUp file 3");
     // const user = await User.findOne({ email: req.body.email });
     console.log("insde server signUp file 4");

@@ -6,7 +6,10 @@ import jwt_decode from "jwt-decode";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
 import Head from "next/head";
+import { useRouter } from "next/router";
+
 const LoginPopup = () => {
+  const router =useRouter();
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -19,6 +22,7 @@ const LoginPopup = () => {
     localStorage.setItem("user_name", userObject.name);
     localStorage.setItem("user_email", userObject.email);
     localStorage.setItem("user_picture", userObject.picture);
+    router.push("/");
   };
 
   useEffect(() => {
@@ -38,21 +42,24 @@ const LoginPopup = () => {
 
   let name, value;
   const handleInput = (e) => {
-    name = e.target.name;
-    value = e.target.value;
-    setUser({
+    console.log(user);
+    const { name, value } = e.target;
+    setUser((prevState) => ({
+      ...prevState,
       [name]: value,
-    });
+    }));
   };
+
 
   const handleClick = async (e) => {
     e.preventDefault();
-
+    localStorage.setItem("user_email", user.email);
+console.log("user detail on client side when login clicked ", user)
     try {
       console.log("start response");
       const response = await axios.post(
         `${BACKEND_URL}/api/login`,
-        userDetails,
+        user,
         {
           withCredentials: true,
         }
@@ -82,11 +89,11 @@ const LoginPopup = () => {
             <img style={{width: "350px", height:"auto"}} src="/images/vector/login.jpg" alt="" />
         </div>
         <div className={styles.right}>
-          <div className={styles.iconHeader}>
+          {/* <div className={styles.iconHeader}>
             <button className={styles.cross}>
               <img src="/images/icon/close-icon.svg" />
             </button>
-          </div>
+          </div> */}
           <h3>SignIn</h3>
           <form method="post" className={styles.form}>
             <input
