@@ -1,28 +1,24 @@
 import connection from "../../utils/connection";
-import Event from "../../models/Event";
+import Event from "../../models/Event.model";
 
 export default async function createEventHandler(req, res) {
-  console.log("CONNECTED TO MONGO");
   await connection();
-  console.log("CONNECTED TO MONGO");
 
   const { method, body } = req;
   switch (method) {
     case "POST":
       const event = await Event.create(body);
 
-      res.json({ event });
-
       res.status(201).json({
-        id: number,
-        name: string,
-        // day_of_event: string,
-        // eventdate: Date,
-        // start_end_time: string,
-        // building_location: string,
-        // map_location: string,
-        // theme: string,
-        // description: string,
+        id: event._id,
+        name: event.name,
+        day_of_event: event.day_of_event,
+        eventdate: event.eventdate,
+        start_end_time: event.start_end_time,
+        building_location: event.building_location,
+        map_location: event.building_location,
+        theme: event.building_location,
+        description: event.building_location,
       });
       break;
     default:
