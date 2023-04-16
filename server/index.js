@@ -4,16 +4,32 @@ const express = require("express");
 const cors = require("cors")
 const app= express();
 
+const bodyParser = require('body-parser');
 
-app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
+app.use(cors({
+    origin: "http://localhost:3000",
+    credentials: true
+  }));
+  
 const connection = require("./db")
 const scrappedEvents = require("./routes/scrappedEvents");
+const login = require("./routes/user/auth");
+const signUp = require("./routes/user/signUp");
+const organizeCampaign=require("./routes/org/organizeCampaign");
+const getCampaign=require("./routes/org/getCampaign")
 const test = require("./routes/test")
 connection();
 
 
 app.use("/api/events/scrappedEvents", scrappedEvents);
-
+app.use("/api/signup", signUp);
+app.use("/api/login", login);
+app.use("/api/organizecampaign", organizeCampaign)
+app.use("/api/getCampaign", getCampaign)
 app.use("/test", test)
 
 app.get("/", (req, res)=>{

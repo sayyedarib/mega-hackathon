@@ -1,0 +1,126 @@
+.userType{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.userType input[type=select] {
+  border: none;
+  font-size: 15px;
+  padding: 15px 35px;
+  background-image: linear-gradient(to right, #003110, #007932);
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-image 1s ease-in-out;
+}
+
+.userType input[type=text]:hover {
+  
+  background-image: linear-gradient(to right, #003110, #003110);
+}
+
+.main textarea{
+  padding: 10px;
+}
+
+.main {
+    display: flex;
+    position: relative;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    width: 800px;
+    height: auto;
+    z-index: 9999;
+    margin: 40px auto;
+    align-items: center;
+    justify-content: center;
+
+  }
+  
+  .right {
+    width: 90%;
+    display: flex;
+    background: white;
+    flex-direction: column;
+    margin: 10px;
+    border-radius: 10px;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+  }
+  .right a{
+    padding: 15px;
+    text-align:start;
+  }
+  .right h3{
+    font-size:25px;
+  }
+  .form {
+    justify-content: center;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .form input {
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.258);
+    padding: 10px;
+  }
+  
+  .form input[type=submit]{
+      border: none;
+      font-size: 15px;
+      padding: 15px;
+      background: linear-gradient(to right, #003110, #007932);
+      border-radius: 5px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  
+    .iconHeader{
+      width: 100%;
+      display: flex;
+      margin-bottom: 10px;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    .iconHeader button {
+      padding: 0;
+      border: none;
+      cursor: pointer;
+      background-color: transparent;
+      color: black;
+      font-weight: bold;
+    }
+    
+    .iconHeader button img {
+      width: 20px;
+      height: 20px;
+    }
+    
+    .iconHeader button.cross {
+      margin-left: auto;
+    }
+    
+
+  @media (max-width:1300px) {
+    .right{
+        /* width: 40%; */
+    }
+ }
+ 
+
+  @media (max-width:800px) {
+     .right{
+         /* width: 95%; */
+     }
+  }
+  

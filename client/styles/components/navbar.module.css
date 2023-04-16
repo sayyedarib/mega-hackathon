@@ -1,0 +1,32 @@
+.main {
+  background: #57ab51d8;
+
+  display: block;
+  padding: 15px;
+}
+
+.main ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.main ul li {
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.main ul li:hover {
+  transform: translateY(-3px);
+  transition: 50ms;
+  /* border-bottom: 2px solid green; */
+}
+
+.main a{
+text-decoration: none;
+color: white;
+}
