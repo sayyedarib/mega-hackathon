@@ -5,7 +5,7 @@ import { BACKEND_URL } from "next.config";
 import jwt_decode from "jwt-decode";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
-
+import Head from "next/head";
 const LoginPopup = () => {
   const [user, setUser] = useState({
     email: "",
@@ -69,6 +69,13 @@ const LoginPopup = () => {
 
   return (
     <>
+    <Head>
+    <script
+          src="https://accounts.google.com/gsi/client"
+          async
+          defer
+        ></script>
+    </Head>
     <Navbar/>
       <div className={styles.main}>
         <div className={styles.left}>
