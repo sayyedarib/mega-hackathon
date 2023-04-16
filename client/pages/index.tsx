@@ -1,5 +1,13 @@
 import { GetServerSideProps } from "next";
-import { Container, List, Text, Title } from "@mantine/core";
+import {
+  Card,
+  Image,
+  Text,
+  Group,
+  Container,
+  List,
+  Title,
+} from "@mantine/core";
 import { FC } from "react";
 import { pick, omitBy, isUndefined } from "lodash-es";
 import Event from "../models/Event.model";
@@ -59,19 +67,44 @@ const HomePage: FC<HomePageProps> = ({ events }) => {
 
           return (
             <List.Item key={id}>
-              {name}
+              <Card
+                shadow="sm"
+                padding="xl"
+                component="a"
+                href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                target="_blank"
+              >
+                <Card.Section>
+                  <Image
+                    src="https://images.unsplash.com/photo-1444723121867-7a241cacace9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80"
+                    height={160}
+                    alt="Event image"
+                  />
+                </Card.Section>
+
+                <Text weight={500} size="lg" mt="md">
+                  {name}
+                </Text>
+                <Text weight={300} size="lg" mt="xs">
+                  {eventdate}
+                </Text>
+                <Text weight={300} size="lg" mt="xs">
+                  {day_of_event}, {start_end_time}
+                </Text>
+                <Text weight={300} size="lg" mt="xs">
+                  {building_location}
+                </Text>
+                <Text weight={250} size="lg" mt="xs">
+                  {map_location}
+                </Text>
+                <Text weight={250} size="lg" mt="xs">
+                  {theme}
+                </Text>
+                <Text mt="xs" color="dimmed" size="sm">
+                  {description}
+                </Text>
+              </Card>
               <br />
-              {day_of_event}, {eventdate}
-              <br />
-              {start_end_time}
-              <br />
-              {building_location}
-              <br />
-              {map_location}
-              <br />
-              {theme}
-              <br />
-              {description}
             </List.Item>
           );
         })}
